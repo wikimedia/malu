@@ -1,6 +1,6 @@
 {
   "name": "malu",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A basic JS end-to-end test harness for MediaWiki installations.",
   "repository": {
     "type": "git",
@@ -15,9 +15,15 @@
     "mediawiki",
     "end-to-end"
   ],
-  "author": { "name": "Dan Duvall", "email":"dduvall@wikimedia.org" },
+  "author": {
+    "name": "Dan Duvall",
+    "email": "dduvall@wikimedia.org"
+  },
   "contributors": [
-    { "name": "Zeljko Filipin", "email": "zfilipin@wikimedia.org" }
+    {
+      "name": "Zeljko Filipin",
+      "email": "zfilipin@wikimedia.org"
+    }
   ],
   "license": "MIT",
   "dependencies": {
