@@ -1,0 +1,38 @@
+{
+  "name": "malu",
+  "version": "0.0.1",
+  "description": "A basic JS end-to-end test harness for MediaWiki installations.",
+  "repository": {
+    "type": "git",
+    "url": "https://phabricator.wikimedia.org/diffusion/GMALU/malu.git"
+  },
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "selenium",
+    "mediawiki",
+    "end-to-end"
+  ],
+  "author": { "name": "Dan Duvall", "email":"dduvall@wikimedia.org" },
+  "contributors": [
+    { "name": "Zeljko Filipin", "email": "zfilipin@wikimedia.org" }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "nodemw": "^0.8.1",
+    "mocha": "^2.3.4",
+    "selenium-webdriver": "~2.47.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mocha-test": "^0.12.7",
+    "grunt-jscs": "^2.7.0",
+    "grunt-jsonlint": "^1.0.7"
+  }
+}

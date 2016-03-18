@@ -1,0 +1,29 @@
+{
+	"preset": "wikimedia",
+
+	"requireVarDeclFirst": false,
+	"disallowQuotedKeysInObjects": "allButReserved",
+	"requireDotNotation": { "allExcept": [ "keywords" ] },
+	"jsDoc": {
+		"checkAnnotations": {
+			"preset": "jsduck5",
+			"extra": {
+				"context": "some",
+				"source": "some",
+				"see": "some"
+			}
+		},
+		"checkParamNames": true,
+		"checkRedundantAccess": true,
+		"checkRedundantReturns": true,
+		"checkTypes": "strictNativeCase",
+		"requireNewlineAfterDescription": true,
+		"requireParamTypes": true,
+		"requireReturnTypes": true
+	},
+
+	"excludeFiles": [
+		"docs/**",
+		"node_modules/**"
+	]
+}
