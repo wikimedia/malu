@@ -1,0 +1,21 @@
+{
+  "linters": {
+    "jshint": {
+      "type": "jshint",
+      "bin": "node_modules/grunt-contrib-jshint/node_modules/jshint/bin/jshint",
+      "jshint.jshintrc": ".jshintrc",
+      "include": "(\\.(js|json)$)"
+    },
+    "jscs": {
+      "type": "jscs",
+      "bin": "node_modules/grunt-jscs/node_modules/jscs/bin/jscs",
+      "jscs.config": ".jscsrc",
+      "include": "(\\.(js|json)$)"
+    },
+    "jsonlint": {
+      "type": "jsonlint",
+      "bin": "node_modules/grunt-jsonlint/node_modules/jsonlint/lib/cli.js",
+      "include": "(^\\.jscsrc$|^\\.jshintrc$|\\.json$)"
+    }
+  }
+}
