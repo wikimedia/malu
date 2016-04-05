@@ -10,7 +10,7 @@
       "type": "jscs",
       "bin": "node_modules/grunt-jscs/node_modules/jscs/bin/jscs",
       "jscs.config": ".jscsrc",
-      "include": "(\\.(js|json)$)"
+      "include": "(\\.(js)$)"
     },
     "jsonlint": {
       "type": "jsonlint",
