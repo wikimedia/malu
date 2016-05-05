@@ -2,8 +2,7 @@ var expect = require( 'chai' ).expect,
 		NodeMW = require( 'nodemw' ),
 		sinon = require( 'sinon' ),
 		webdriver = require( 'selenium-webdriver' ),
-		runner = require( '../../lib/runner' ),
-		wiki = require( '../../lib/wiki' );
+		runner = require( '../../lib/runner' );
 
 describe( 'runner', function () {
 	var sandbox;
@@ -26,32 +25,26 @@ describe( 'runner', function () {
 				};
 
 		beforeEach( function () {
-			sandbox.stub( NodeMW.prototype, 'getSiteInfo' ).yields( undefined, siteinfo );
+			sandbox.mock( NodeMW.prototype ).expects( 'getSiteInfo' ).yields( undefined, siteinfo );
 		} );
 
-		it( 'promises a wiki.Site based on the API siteinfo', function () {
-			return runner.start().then( function ( obj ) {
-				expect( obj ).to.be.a( 'object' );
-
-				expect( obj.runtime ).to.be.an.instanceof( runner.Runtime );
-				expect( obj.wiki ).to.be.an.instanceof( wiki.Site );
-
-				expect( obj.wiki.siteinfo ).to.equal( siteinfo.general );
-				expect( obj.wiki.url.protocol ).to.equal( 'http:' );
-				expect( obj.wiki.url.hostname ).to.equal( 'an.example' );
-				expect( obj.wiki.url.path ).to.equal( '/foo' );
+		it( 'promises a new Runtime from the queried siteinfo', function () {
+			return runner.start().then( function ( runtime ) {
+				expect( runtime ).to.be.an.instanceof( runner.Runtime );
+				expect( runtime.siteinfo ).to.equal( siteinfo );
 			} );
 		} );
 
 		it( 'honors the BROWSER environment variable', function () {
-			return runner.start( { BROWSER: 'konqueror' } ).then( function ( obj ) {
-				expect( obj.runtime.browser ).to.equal( 'konqueror' );
+			return runner.start( { BROWSER: 'konqueror' } ).then( function ( runtime ) {
+				expect( runtime ).to.be.an.instanceof( runner.Runtime );
+				expect( runtime.browser ).to.equal( 'konqueror' );
 			} );
 		} );
 
 		it( 'defaults to using firefox', function () {
-			return runner.start().then( function ( obj ) {
-				expect( obj.runtime.browser ).to.equal( 'firefox' );
+			return runner.start().then( function ( runtime ) {
+				expect( runtime.browser ).to.equal( 'firefox' );
 			} );
 		} );
 	} );
